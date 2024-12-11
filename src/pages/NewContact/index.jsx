@@ -1,5 +1,13 @@
+import PageHeader from '../../components/PageHeader';
+import ContactForm from '../../components/ContactForm';
+
 const NewContact = () => {
-  return <>New Contact Page</>
+  return (
+    <>
+      <PageHeader />
+      <ContactForm buttonLabel="Cadastrar" />
+    </>
+  )
 }
 
 export default NewContact;
