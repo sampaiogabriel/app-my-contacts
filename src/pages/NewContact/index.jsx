@@ -7,7 +7,7 @@ const NewContact = () => {
       <PageHeader />
       <ContactForm buttonLabel="Cadastrar" />
     </>
-  )
-}
+  );
+};
 
 export default NewContact;

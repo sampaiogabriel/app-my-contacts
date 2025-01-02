@@ -8,20 +8,16 @@ const PageHeader = ({ title = 'Novo contato' }) => {
     <Container>
       <Link to="/">
         <img src={arrow} alt="Back" />
-        <span>
-          Voltar
-        </span>
+        <span>Voltar</span>
       </Link>
 
-      <h1>
-        {title}
-      </h1>
+      <h1>{title}</h1>
     </Container>
-  )
-}
+  );
+};
 
 export default PageHeader;
 
 PageHeader.propTypes = {
   title: PropTypes.string,
-}
+};

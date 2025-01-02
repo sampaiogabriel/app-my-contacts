@@ -1,5 +1,4 @@
-import styled, { keyframes } from "styled-components"
-
+import styled, { keyframes } from 'styled-components';
 
 const load = keyframes`
   0% {
@@ -38,10 +37,10 @@ const round = keyframes`
 export const Overlay = styled.div`
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0; 
+  position: fixed;
+  top: 0;
   left: 0;
-  background-color: rgba(246,245,252,0.7);
+  background-color: rgba(246, 245, 252, 0.7);
 
   display: flex;
   align-items: center;
@@ -60,8 +59,11 @@ export const Overlay = styled.div`
     -webkit-transform: translateZ(0);
     -ms-transform: translateZ(0);
     transform: translateZ(0);
-    -webkit-animation: ${load} 1.7s infinite ease, ${round} 1.7s infinite ease;
-    animation: ${load} 1.7s infinite ease, ${round} 1.7s infinite ease;
+    -webkit-animation:
+      ${load} 1.7s infinite ease,
+      ${round} 1.7s infinite ease;
+    animation:
+      ${load} 1.7s infinite ease,
+      ${round} 1.7s infinite ease;
   }
 `;
-

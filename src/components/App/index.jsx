@@ -9,7 +9,6 @@ import Header from '../Header';
 import Routes from '../../routes';
 
 function App() {
-
   return (
     <BrowserRouter>
       <ThemeProvider theme={defaultTheme}>
@@ -20,7 +19,7 @@ function App() {
         </Container>
       </ThemeProvider>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

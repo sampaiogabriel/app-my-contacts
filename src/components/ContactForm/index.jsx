@@ -14,19 +14,20 @@ const ContactForm = ({ buttonLabel }) => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [category, setCategory] = useState('');
-  const { errors, setError, getErrorMessageByFieldName, removeError } = useErrors();
+  const { errors, setError, getErrorMessageByFieldName, removeError } =
+    useErrors();
 
-  const isFormValid = (name && errors.length === 0);
+  const isFormValid = name && errors.length === 0;
 
   const handleNameChange = (e) => {
     setName(e.target.value);
 
     if (!e.target.value) {
-      setError({ field: 'name', message: 'Nome é obrigatório' })
+      setError({ field: 'name', message: 'Nome é obrigatório' });
     } else {
       removeError('name');
     }
-  }
+  };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -36,24 +37,27 @@ const ContactForm = ({ buttonLabel }) => {
     } else {
       removeError('email');
     }
-  }
+  };
 
   const handlePhoneChange = (e) => {
     setPhone(formatPhone(e.target.value));
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log({
-      name, email, phone, category
+      name,
+      email,
+      phone,
+      category,
     });
-  }
+  };
 
   return (
     <Form onSubmit={handleSubmit} noValidate>
       <FormGroup error={getErrorMessageByFieldName('name')}>
         <Input
-          placeholder='Nome *'
+          placeholder="Nome *"
           value={name}
           onChange={handleNameChange}
           error={getErrorMessageByFieldName('name')}
@@ -63,7 +67,7 @@ const ContactForm = ({ buttonLabel }) => {
       <FormGroup error={getErrorMessageByFieldName('email')}>
         <Input
           type="email"
-          placeholder='E-mail'
+          placeholder="E-mail"
           value={email}
           onChange={handleEmailChange}
           error={getErrorMessageByFieldName('email')}
@@ -71,7 +75,8 @@ const ContactForm = ({ buttonLabel }) => {
       </FormGroup>
 
       <FormGroup>
-        <Input placeholder='Telefone'
+        <Input
+          placeholder="Telefone"
           value={phone}
           onChange={(e) => handlePhoneChange(e)}
           maxLength={15}
@@ -79,33 +84,24 @@ const ContactForm = ({ buttonLabel }) => {
       </FormGroup>
 
       <FormGroup>
-        <Select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-        >
-          <option value="categoria">
-            Categoria
-          </option>
-          <option value="instagram">
-            Instagram
-          </option>
-          <option value="discord">
-            Discord
-          </option>
+        <Select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <option value="categoria">Categoria</option>
+          <option value="instagram">Instagram</option>
+          <option value="discord">Discord</option>
         </Select>
       </FormGroup>
 
       <ButtonContainer>
-        <Button type='submit' disabled={!isFormValid}>
+        <Button type="submit" disabled={!isFormValid}>
           {buttonLabel}
         </Button>
       </ButtonContainer>
     </Form>
-  )
-}
+  );
+};
 
 ContactForm.propTypes = {
-  buttonLabel: PropTypes.string.isRequired
-}
+  buttonLabel: PropTypes.string.isRequired,
+};
 
 export default ContactForm;

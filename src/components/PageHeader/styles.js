@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.header`
- margin-bottom: 24px;
+  margin-bottom: 24px;
 
   a {
     display: flex;

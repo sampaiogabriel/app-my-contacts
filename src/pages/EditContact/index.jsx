@@ -7,7 +7,7 @@ const EditContact = () => {
       <PageHeader title="Editar Gabriel Sampaio" />
       <ContactForm buttonLabel="Editar" />
     </>
-  )
-}
+  );
+};
 
 export default EditContact;

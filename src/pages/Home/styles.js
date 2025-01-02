@@ -1,9 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   margin-top: 32px;
 `;
-
 
 export const InputSearchContainer = styled.div`
   width: 100%;
@@ -27,12 +26,14 @@ export const InputSearchContainer = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${({ justifyContent }) => justifyContent};
   margin-top: 32px;
 
+  border-bottom: 2px solid ${({ theme }) => theme.colors.gray[100]};
+  padding-bottom: 16px;
 
   strong {
-   font-size: 24px; 
+    font-size: 24px;
   }
 
   a {
@@ -51,30 +52,33 @@ export const Header = styled.header`
   }
 `;
 
-export const ListContainer = styled.div`
+export const ListHeader = styled.header`
   margin-top: 24px;
+  margin-bottom: 8px;
 
-  header {
-    margin-bottom: 8px;
-
-    button {
+  button {
     background-color: transparent;
     border: none;
     display: flex;
     align-items: center;
 
-    span{
+    span {
       color: ${({ theme }) => theme.colors.primary.main};
       margin-right: 8px;
       font-weight: bold;
     }
-  }
+
+    img {
+      transform: ${({ orderBy }) =>
+        orderBy === 'asc' ? 'rotate(180deg)' : 'rotate(0deg)'};
+      transition: transform 0.3s ease-in;
+    }
   }
 `;
 
 export const Card = styled.div`
   background-color: #fff;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.04);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
   padding: 16px;
   border-radius: 4px;
 
@@ -87,7 +91,6 @@ export const Card = styled.div`
   }
 
   .info {
-
     .contact-name {
       display: flex;
       align-items: center;
@@ -103,11 +106,11 @@ export const Card = styled.div`
       }
     }
 
-      span {
-        display: block;
-        font-size: 14px;
-        color: ${({ theme }) => theme.colors.gray[200]};
-      }
+    span {
+      display: block;
+      font-size: 14px;
+      color: ${({ theme }) => theme.colors.gray[200]};
+    }
   }
 
   .actions {
@@ -118,6 +121,26 @@ export const Card = styled.div`
       background: transparent;
       border: none;
       margin-left: 8px;
+    }
+  }
+`;
+
+export const ErrorContainer = styled.div`
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+
+  .details {
+    margin-left: 24px;
+
+    strong {
+      font-size: 22px;
+      color: ${({ theme }) => theme.colors.danger.main};
+      display: block;
+    }
+
+    button {
+      margin-top: 8px;
     }
   }
 `;

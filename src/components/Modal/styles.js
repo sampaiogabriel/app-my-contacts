@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Overlay = styled.div`
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   position: absolute;
   width: 100%;
@@ -23,10 +23,11 @@ export const Container = styled.div`
 
   h1 {
     font-size: 22px;
-    color: ${({ theme, danger }) => danger ? theme.colors.danger.main : theme.colors.gray[900]}
+    color: ${({ theme, danger }) =>
+      danger ? theme.colors.danger.main : theme.colors.gray[900]};
   }
-  
-  p{
+
+  p {
     margin-top: 8px;
   }
 `;
@@ -38,7 +39,7 @@ export const Footer = styled.footer`
   justify-content: flex-end;
   gap: 8px;
 
-  .cancel-button{
+  .cancel-button {
     background-color: transparent;
     border: none;
     font-size: 16px;
