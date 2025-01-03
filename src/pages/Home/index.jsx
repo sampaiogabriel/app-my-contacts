@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import arrow from '../../assets/images/icons/arrow.svg';
 import edit from '../../assets/images/icons/edit.svg';
 import emptyBox from '../../assets/images/icons/empty-box.svg';
+import magnifierQuestion from '../../assets/images/icons/magnifier-question.svg';
 import sad from '../../assets/images/icons/sad.svg';
 import trash from '../../assets/images/icons/trash.svg';
 import Button from '../../components/Button';
@@ -15,6 +16,8 @@ import {
   ListHeader,
   Card,
   ErrorContainer,
+  EmptyListContainer,
+  SearchNotFoundContainer,
 } from '../../pages/Home/styles';
 import ContactsService from '../../services/ContactsService';
 
@@ -38,6 +41,7 @@ const Home = () => {
       setIsLoading(true);
 
       const contactsList = await ContactsService.listContacts(orderBy);
+
       setContacts(contactsList);
       setHasError(false);
     } catch (error) {
@@ -111,10 +115,25 @@ const Home = () => {
 
       {!hasError && (
         <>
-          {contacts.length < 1 && (
-            <div>
+          {contacts.length < 1 && !isLoading && (
+            <EmptyListContainer>
               <img src={emptyBox} alt="EmptyBox" />
-            </div>
+              <p>
+                Você ainda não tem nenhum contato cadastrado! Clique no botão
+                <strong> Novo contato </strong> acima para cadastrar seu
+                primeiro contato!
+              </p>
+            </EmptyListContainer>
+          )}
+
+          {contacts.length > 0 && filteredContacts.length < 1 && (
+            <SearchNotFoundContainer>
+              <img src={magnifierQuestion} alt="Magnifier Question" />
+              <span>
+                Nenhum resultado foi encontrado para
+                <strong> &quot;{searchTerm}&quot;</strong>
+              </span>
+            </SearchNotFoundContainer>
           )}
 
           {filteredContacts.length > 0 && (

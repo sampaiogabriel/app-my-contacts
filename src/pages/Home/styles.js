@@ -71,6 +71,7 @@ export const ListHeader = styled.header`
     img {
       transform: ${({ orderBy }) =>
         orderBy === 'asc' ? 'rotate(180deg)' : 'rotate(0deg)'};
+
       transition: transform 0.3s ease-in;
     }
   }
@@ -142,5 +143,34 @@ export const ErrorContainer = styled.div`
     button {
       margin-top: 8px;
     }
+  }
+`;
+
+export const EmptyListContainer = styled.div`
+  margin-top: 16px;
+  text-align: center;
+
+  img {
+    margin-bottom: 8px;
+  }
+
+  p {
+    color: ${({ theme }) => theme.colors.gray[200]};
+
+    strong {
+      color: ${({ theme }) => theme.colors.primary.main};
+    }
+  }
+`;
+
+export const SearchNotFoundContainer = styled.div`
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  span {
+    color: ${({ theme }) => theme.colors.gray[200]};
+    word-break: break-word;
   }
 `;
