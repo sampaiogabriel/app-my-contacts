@@ -12,11 +12,11 @@ import CategoriesService from '../../services/CategoriesService';
 import FormGroup from '../FormGroup';
 import { Form, ButtonContainer } from './styles';
 
-const ContactForm = ({ buttonLabel }) => {
+const ContactForm = ({ buttonLabel, onSubmit }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [category, setCategory] = useState('');
+  const [categoryId, setCategoryId] = useState('');
   const [categories, setCategories] = useState([]);
   const { errors, setError, getErrorMessageByFieldName, removeError } =
     useErrors();
@@ -65,12 +65,7 @@ const ContactForm = ({ buttonLabel }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log({
-      name,
-      email,
-      phone,
-      category,
-    });
+    onSubmit({ name, email, phone, categoryId });
   };
 
   return (
@@ -105,8 +100,8 @@ const ContactForm = ({ buttonLabel }) => {
 
       <FormGroup isLoading={isLoadingCategories}>
         <Select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value={categoryId}
+          onChange={(e) => setCategoryId(e.target.value)}
           disabled={isLoadingCategories}
         >
           <option value="">Sem categoria</option>
@@ -130,6 +125,7 @@ const ContactForm = ({ buttonLabel }) => {
 
 ContactForm.propTypes = {
   buttonLabel: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
