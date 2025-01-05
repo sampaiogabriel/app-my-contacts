@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 import formatPhone from '../../utils/formatPhone';
 import isEmailValid from '../../utils/isEmailValid';
 
-import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
 import useErrors from '../../hooks/useErrors';
 import CategoriesService from '../../services/CategoriesService';
+import Button from '../Button';
 import FormGroup from '../FormGroup';
 import { Form, ButtonContainer } from './styles';
 
@@ -21,6 +21,7 @@ const ContactForm = ({ buttonLabel, onSubmit }) => {
   const { errors, setError, getErrorMessageByFieldName, removeError } =
     useErrors();
   const [isLoadingCategories, setIsLoadingCategories] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const isFormValid = name && errors.length === 0;
 
@@ -63,9 +64,14 @@ const ContactForm = ({ buttonLabel, onSubmit }) => {
     setPhone(formatPhone(e.target.value));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    onSubmit({ name, email, phone, categoryId });
+
+    setIsSubmitting(true);
+
+    await onSubmit({ name, email, phone, categoryId });
+
+    setIsSubmitting(false);
   };
 
   return (
@@ -76,6 +82,7 @@ const ContactForm = ({ buttonLabel, onSubmit }) => {
           value={name}
           onChange={handleNameChange}
           error={getErrorMessageByFieldName('name')}
+          disabled={isSubmitting}
         />
       </FormGroup>
 
@@ -86,6 +93,7 @@ const ContactForm = ({ buttonLabel, onSubmit }) => {
           value={email}
           onChange={handleEmailChange}
           error={getErrorMessageByFieldName('email')}
+          disabled={isSubmitting}
         />
       </FormGroup>
 
@@ -95,6 +103,7 @@ const ContactForm = ({ buttonLabel, onSubmit }) => {
           value={phone}
           onChange={(e) => handlePhoneChange(e)}
           maxLength={15}
+          disabled={isSubmitting}
         />
       </FormGroup>
 
@@ -102,7 +111,7 @@ const ContactForm = ({ buttonLabel, onSubmit }) => {
         <Select
           value={categoryId}
           onChange={(e) => setCategoryId(e.target.value)}
-          disabled={isLoadingCategories}
+          disabled={isLoadingCategories || isSubmitting}
         >
           <option value="">Sem categoria</option>
 
@@ -115,7 +124,7 @@ const ContactForm = ({ buttonLabel, onSubmit }) => {
       </FormGroup>
 
       <ButtonContainer>
-        <Button type="submit" disabled={!isFormValid}>
+        <Button type="submit" disabled={!isFormValid} isLoading={isSubmitting}>
           {buttonLabel}
         </Button>
       </ButtonContainer>
