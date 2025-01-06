@@ -1,9 +1,10 @@
 import { Switch, Route } from 'react-router-dom';
 
-import Home from './pages/Home';
 import EditContact from './pages/EditContact';
+import Home from './pages/Home';
 import NewContact from './pages/NewContact';
 
+// eslint-disable-next-line react/function-component-definition
 export default function Routes() {
   return (
     <Switch>
