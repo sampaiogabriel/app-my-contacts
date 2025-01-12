@@ -1,2 +1,12 @@
-Figma: 
-https://www.figma.com/design/zhAwjW2RimyjccDgiY6luz/MyContacts?node-id=0-1&node-type=canvas&t=yPRiOHUTkdXlLjKL-0
+# MyContacts
+
+## Futures Features
+
+-> Alterar os Toastys quando der problema, informar o usuário o problema.
+-> Adicionar o gatilho da modal como é feito no Toast
+-> Adicionar temificação
+-> Adicionar paginação
+-> Adicionar filtros
+-> Adicionar CRUD de Categorias
+-> Adicionar um Header com opções
+-> Adicionar login

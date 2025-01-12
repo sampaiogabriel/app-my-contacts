@@ -6,6 +6,7 @@ export const Container = styled.div`
 
 export const InputSearchContainer = styled.div`
   width: 100%;
+  box-shadow: (0px 4px 10px rgba(0, 0, 0, 0.04));
 
   input {
     width: 100%;
@@ -14,7 +15,6 @@ export const InputSearchContainer = styled.div`
     border-radius: 25px;
     height: 50px;
     outline: none;
-    box-shadow: (0px 4px 10px rgba(0, 0, 0, 0.04));
     padding: 0px 16px;
 
     &::placeholder {
@@ -70,7 +70,7 @@ export const ListHeader = styled.header`
 
     img {
       transform: ${({ orderBy }) =>
-        orderBy === 'asc' ? 'rotate(180deg)' : 'rotate(0deg)'};
+    orderBy === 'asc' ? 'rotate(180deg)' : 'rotate(0deg)'};
 
       transition: transform 0.3s ease-in;
     }
