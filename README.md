@@ -10,3 +10,4 @@
 -> Adicionar CRUD de Categorias
 -> Adicionar um Header com opções
 -> Adicionar login
+-> Criar uma biblioteca própria do eslint e realizar a publicação dela
