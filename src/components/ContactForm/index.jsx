@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useEffect, useImperativeHandle, useState, forwardRef } from 'react';
 
 import formatPhone from '../../utils/formatPhone';
 import isEmailValid from '../../utils/isEmailValid';
@@ -12,7 +12,8 @@ import Button from '../Button';
 import FormGroup from '../FormGroup';
 import { Form, ButtonContainer } from './styles';
 
-const ContactForm = ({ buttonLabel, onSubmit }) => {
+// eslint-disable-next-line react/display-name
+const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -28,6 +29,21 @@ const ContactForm = ({ buttonLabel, onSubmit }) => {
   useEffect(() => {
     loadCategories();
   }, []);
+
+  useImperativeHandle(ref, () => ({
+    setFieldsValue: (contact) => {
+      setName(contact.name);
+      setEmail(contact.email || '');
+      setPhone(contact.phone || '');
+      setCategoryId(contact.category_id || '');
+    },
+    resetFields: () => {
+      setName('');
+      setEmail('');
+      setPhone('');
+      setCategoryId('');
+    },
+  }));
 
   const loadCategories = async () => {
     try {
@@ -114,7 +130,6 @@ const ContactForm = ({ buttonLabel, onSubmit }) => {
           disabled={isLoadingCategories || isSubmitting}
         >
           <option value="">Sem categoria</option>
-
           {categories.map(({ id, name }) => (
             <option key={id} value={id}>
               {name}
@@ -130,7 +145,7 @@ const ContactForm = ({ buttonLabel, onSubmit }) => {
       </ButtonContainer>
     </Form>
   );
-};
+});
 
 ContactForm.propTypes = {
   buttonLabel: PropTypes.string.isRequired,

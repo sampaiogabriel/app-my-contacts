@@ -1,35 +1,67 @@
-import { Overlay, Container, Footer } from './styles';
 import PropTypes from 'prop-types';
+
 import Button from '../Button';
-import ReactDOM from 'react-dom';
+import ReactPortal from '../ReactPortal';
+import { Overlay, Container, Footer } from './styles';
 
-const Modal = ({ danger }) => {
-  return ReactDOM.createPortal(
-    <Overlay>
-      <Container danger={danger}>
-        <h1>Título do Modal</h1>
-        <p>Corpo do Modal</p>
-        <Footer>
-          <button type="button" className="cancel-button">
-            Cancelar
-          </button>
+const Modal = ({
+  title,
+  visible,
+  children,
+  cancelLabel = 'Cancelar',
+  confirmLabel = 'Confirmar',
+  onCancel,
+  onConfirm,
+  danger = false,
+  isLoading = false,
+}) => {
+  if (!visible) {
+    return null;
+  }
 
-          <Button type="button" danger={danger}>
-            Deletar
-          </Button>
-        </Footer>
-      </Container>
-    </Overlay>,
-    document.getElementById('modal-root'),
+  return (
+    <ReactPortal containerId="modal-root">
+      <Overlay>
+        <Container danger={danger}>
+          <h1>{title}</h1>
+
+          <div className="modal-body">{children}</div>
+
+          <Footer>
+            <button
+              type="button"
+              className="cancel-button"
+              onClick={onCancel}
+              disabled={isLoading}
+            >
+              {cancelLabel}
+            </button>
+
+            <Button
+              type="button"
+              danger={danger}
+              onClick={onConfirm}
+              isLoading={isLoading}
+            >
+              {confirmLabel}
+            </Button>
+          </Footer>
+        </Container>
+      </Overlay>
+    </ReactPortal>
   );
 };
 
 Modal.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  onConfirm: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
   danger: PropTypes.bool,
-};
-
-Modal.defaultProps = {
-  danger: false,
+  isLoading: PropTypes.bool,
+  visible: PropTypes.bool.isRequired,
+  cancelLabel: PropTypes.string,
+  confirmLabel: PropTypes.string,
 };
 
 export default Modal;
