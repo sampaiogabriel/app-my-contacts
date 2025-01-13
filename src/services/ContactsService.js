@@ -25,8 +25,8 @@ class ContactsService {
     return this.httpClient.put(`/contacts/${id}`, { body });
   }
 
-  getContactById(id) {
-    const contact = this.httpClient.get(`/contacts/${id}`);
+  async getContactById(id) {
+    const contact = await this.httpClient.get(`/contacts/${id}`);
     return ContactMapper.toDomain(contact);
   }
 
