@@ -11,3 +11,4 @@
 -> Adicionar um Header com opções
 -> Adicionar login
 -> Criar uma biblioteca própria do eslint e realizar a publicação dela
+-> Resolver bug da modal de exclusão, ao tentar excluir 1 contato, no próximo a modal tá bugadadd

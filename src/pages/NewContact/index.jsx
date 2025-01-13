@@ -9,17 +9,9 @@ import ContactsService from '../../services/ContactsService';
 const NewContact = () => {
   const contactFormRef = useRef(null);
 
-  const handleSubmit = async (formData) => {
+  const handleSubmit = async (contact) => {
     try {
-      const contact = {
-        name: formData.name,
-        phone: formData.phone,
-        email: formData.email,
-        category_id: formData.categoryId,
-      };
-
       await ContactsService.createContact(contact);
-
       contactFormRef.current.resetFields();
 
       toast({
