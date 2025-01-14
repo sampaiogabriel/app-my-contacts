@@ -32,7 +32,7 @@ const useHome = () => {
       setHasError(false);
     } catch (error) {
       setHasError(true);
-      console.error(error);
+      setContacts([]);
     } finally {
       setIsLoading(false);
     }
