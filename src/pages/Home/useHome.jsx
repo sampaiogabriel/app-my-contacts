@@ -61,7 +61,6 @@ const useHome = () => {
 
   const handleCloseDeleteModal = () => {
     setIsDeleteModalVisible(false);
-    setContactBeingDeleted(null);
   };
 
   const handleConfirmDeleteContact = async () => {
