@@ -2,6 +2,8 @@
 
 O "App My Contacts" é uma aplicação desenvolvida para gerenciar contatos, permitindo adicionar, editar, excluir e listar contatos de forma simples e eficiente.
 
+
+
 ## 🚀 Tecnologias Utilizadas  
 
 - **React** – Biblioteca para construção da interface de usuário
@@ -17,6 +19,10 @@ O "App My Contacts" é uma aplicação desenvolvida para gerenciar contatos, per
 - ✅ Busca de contato por ID
 - ✅ Atualização de informações do contato
 - ✅ Exclusão de contatos 
+
+<div align="center">
+<img src="./my-contacts.gif" />
+</div>
 
 ## 🔧 Como Executar  
 
