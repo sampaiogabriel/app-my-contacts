@@ -1,14 +1,47 @@
-# MyContacts
+# 📞 App My Contacts
 
-## Futures Features
+O "App My Contacts" é uma aplicação desenvolvida para gerenciar contatos, permitindo adicionar, editar, excluir e listar contatos de forma simples e eficiente.
 
--> Alterar os Toastys quando der problema, informar o usuário o problema.
--> Adicionar o gatilho da modal como é feito no Toast
--> Adicionar temificação
--> Adicionar paginação
--> Adicionar filtros
--> Adicionar CRUD de Categorias
--> Adicionar um Header com opções
--> Adicionar login
--> Criar uma biblioteca própria do eslint e realizar a publicação dela
--> Resolver bug da modal de exclusão, ao tentar excluir 1 contato, no próximo a modal tá bugadadd
+## 🚀 Tecnologias Utilizadas  
+
+- **React** – Biblioteca para construção da interface de usuário
+- **Vite** – Ferramenta de build para otimizar o processo de desenvolvimento
+- **CSS** – Para estilização da interface do usuário
+- **JavaScript** – Linguagem de programação principal para lógica do front-end
+- **Styled Components** - Estilização dos componentes
+
+## 📌 Funcionalidades  
+
+- ✅ Cadastro de contatos com nome, e-mail e telefone
+- ✅ Listagem de todos os contatos
+- ✅ Busca de contato por ID
+- ✅ Atualização de informações do contato
+- ✅ Exclusão de contatos 
+
+## 🔧 Como Executar  
+
+1. Clone este repositório:  
+   ```bash
+    git clone https://github.com/sampaiogabriel/app-my-contacts.git
+    cd app-my-contacts
+   ```
+
+2. Instale as dependências:  
+   ```bash
+   npm install
+   ```
+
+3. Inicie o servidor:  
+   ```bash
+   npm run dev
+   ```
+
+4. Acesse a API em:  
+   ```
+   http://localhost:3000
+   ```
+
+## 📝 Licença  
+
+Este projeto está sob a licença **MIT**.  
+
