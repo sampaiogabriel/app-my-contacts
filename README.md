@@ -1,53 +1,52 @@
 # 📞 App My Contacts
 
-O "App My Contacts" é uma aplicação desenvolvida para gerenciar contatos, permitindo adicionar, editar, excluir e listar contatos de forma simples e eficiente.
+**App My Contacts** is a lightweight and efficient contact management application built with modern web technologies. It allows users to seamlessly create, read, update, and delete contact entries.
 
+## 🚀 Tech Stack
 
+- **React** – Library for building user interfaces
+- **Vite** – Fast build tool for optimized development
+- **JavaScript** – Core programming language for front-end logic
+- **Styled Components** – Component-level styling using tagged template literals
+- **CSS** – Styling for UI elements
 
-## 🚀 Tecnologias Utilizadas  
+## 📌 Key Features
 
-- **React** – Biblioteca para construção da interface de usuário
-- **Vite** – Ferramenta de build para otimizar o processo de desenvolvimento
-- **CSS** – Para estilização da interface do usuário
-- **JavaScript** – Linguagem de programação principal para lógica do front-end
-- **Styled Components** - Estilização dos componentes
-
-## 📌 Funcionalidades  
-
-- ✅ Cadastro de contatos com nome, e-mail e telefone
-- ✅ Listagem de todos os contatos
-- ✅ Busca de contato por ID
-- ✅ Atualização de informações do contato
-- ✅ Exclusão de contatos 
+- ✅ Create contacts with name, email, and phone number
+- ✅ View a list of all contacts
+- ✅ Search contacts by ID
+- ✅ Update contact information
+- ✅ Delete existing contacts
 
 <div align="center">
-<img src="./my-contacts.gif" />
+<img src="./my-contacts.gif" alt="App Preview" />
 </div>
 
-## 🔧 Como Executar  
+## 🔧 Getting Started
 
-1. Clone este repositório:  
+To run the application locally, follow these steps:
+
+1. Clone the repository:
    ```bash
-    git clone https://github.com/sampaiogabriel/app-my-contacts.git
-    cd app-my-contacts
+   git clone https://github.com/sampaiogabriel/app-my-contacts.git
+   cd app-my-contacts
    ```
 
-2. Instale as dependências:  
+2. Install dependencies:
    ```bash
    npm install
    ```
 
-3. Inicie o servidor:  
+3. Start the development server:
    ```bash
    npm run dev
    ```
 
-4. Acesse a API em:  
+4. Open your browser and go to:
    ```
    http://localhost:3000
    ```
 
-## 📝 Licença  
+## 📝 License
 
-Este projeto está sob a licença **MIT**.  
-
+This project is licensed under the **MIT License**.
